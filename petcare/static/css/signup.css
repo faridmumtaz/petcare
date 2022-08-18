@@ -1,0 +1,219 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+  }
+  body {
+    min-height: 100%;
+    overflow-x: hidden;
+  }
+
+  .login-section{
+    width: 100%;
+    height: 100vh;
+    background-image: url(../img/kitten-with-pink-background-zoom-virtual-background.jpg);
+    background-size: cover;
+    background-color: #11111134;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.login{
+    width: 100%;
+    height: 100%;
+    padding: 8% 10% ;
+    /* background-color: tomato; */
+}
+
+  
+.conform{
+  width: 70%;
+  height: 50%;
+  background: white;
+  box-shadow: 15px 15px 20px -10px rgb(0 0 0);
+  border-radius: 5px;
+  float: left;
+  align-items: center;
+  justify-content: center;
+  margin-top: -95px;
+  margin-left: -124px;
+}
+  .conform h2{
+    font-size: 45px;
+    margin-bottom: 15px;
+    margin-top: 5%;
+    color: #00cc2c;
+    font-family: 'Lobster Two', cursive;
+  text-transform:capitalize;
+  text-decoration: none;
+  letter-spacing: 2px;
+    font-weight: -500;
+    text-align: center;
+  
+  }
+
+  .conform .fform{
+      margin: 3% 10% 10% 10%;
+  }
+  .conform .inbox{
+    position: relative;
+    width: 100%;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .conform .inbox input{
+    width: 65%;
+    padding: 5px 0;
+    background: none;
+    font-size: 16px;
+    margin: 10px -34px;
+    border: none;
+    border-bottom: 2px solid crimson;
+    outline: none;
+    resize: none;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    text-decoration: none;
+    letter-spacing: 1px;
+  }
+  .conform .inbox input[type="email"]{
+    width: 65%;
+    padding: 5px 0;
+    background: none;
+    font-size: 16px;
+    margin: 10px -34px;
+    border: none;
+    border-bottom: 2px solid crimson;
+    outline: none;
+    resize: none;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    text-decoration: none;
+    letter-spacing: 1px;
+  }
+  .conform .inbox input[type="password"]{
+    width: 65%;
+    padding: 5px 0;
+    background: none;
+    font-size: 16px;
+    margin: 10px -34px;
+    border: none;
+    border-bottom: 2px solid crimson;
+    outline: none;
+    resize: none;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    text-decoration: none;
+    letter-spacing: 1px;
+  }
+  .conform .inbox textarea{
+    width: 65%;
+    padding: 5px 0;
+    background: none;
+    font-size: 16px;
+    margin: 10px -34px;
+    border: none;
+    border-bottom: 2px solid crimson;
+    outline: none;
+    resize: none;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    text-decoration: none;
+    letter-spacing: 1px;
+  }
+  
+  .conform .inbox .lab{
+    position: absolute;
+    left: 0;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px -28px;
+    pointer-events: none;
+    transition: 0.5s;
+    color: #666;
+  }
+  
+  .conform .inbox input:focus ~ .lab,
+  .conform .inbox input:valid ~ .lab,
+  .conform .inbox input[type="email"]:focus ~ .lab,
+  .conform .inbox input[type="email"]:valid ~ .lab,
+  .conform .inbox input[type="password"]:focus ~ .lab,
+  .conform .inbox input[type="password"]:valid ~ .lab,
+  .conform .inbox textarea:focus ~ .lab,
+  .conform .inbox textarea:valid ~ .lab{
+    color: crimson;
+    font-size: 12px;
+    transform: translateY(-20px);
+  }
+  .conform .inbox input[type="submit"]{
+    width: 150px;
+    background: crimson;
+    color: white;
+    border: none;
+  align-items: center;
+    font-size: 1em;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 2px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.5s;
+  }
+  
+  
+  .conform .inbox input[type="submit"]:hover {
+  background:#00cc2c;
+  transform: scale(0.97);
+  }
+
+  
+  .conform .ll i{
+    font-size: 22px;
+    position: relative;
+float: right;
+   right: 15px;
+   top: 15px;
+    color: rgb(0, 0, 0);
+    transition: .5s;
+}
+
+  .conform .ll i:hover{
+    font-weight: bold;
+    transform: scale(0.9);
+  }
+
+
+
+@media screen and (min-width : 0) and (max-width : 1068px){
+
+    .conform{
+        width: 100%;
+        height: 100%;
+     background: white;
+     box-shadow: 15px 15px 20px -10px rgb(0, 0, 0);
+        border-radius: 5px;
+      align-items: center;
+      justify-content: center;
+        }
+   
+      
+.login{
+    width: 100%;
+    height: 100%;
+    padding: 50px 10px ;
+    /* background-color: tomato; */
+}
+.conform .fform{
+    margin: 3% 10% 10% 10%;
+}
+
+.conform .inbox a{
+    margin-left: 0px;
+}
+}

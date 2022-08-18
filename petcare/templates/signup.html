@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="shortcut icon" href="{% static 'img/shortcuticon.jpg' %}" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="{% static 'fontawesome-free-5.15.1-web/css/all.css' %}">
+  <link rel="stylesheet" href="{% static 'css/signup.css' %}" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:wght@700&display=swap" rel="stylesheet" />
+  {% comment %} <script src="{% static '/javascript/validation.js' %}"></script> {% endcomment %}
+  <style>
+    .error {
+      display: block;
+      color: red;
+      float: right;
+      width: 38%;
+      margin-top: 5px;
+      text-align: justify;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-section">
+    <div class="wrapper">
+      <div class="login">
+
+        <div class="conform">
+          <div class="ll">
+            <a href="/" onclick="home()"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+          </div>
+          <h2>Welcome</h2>
+          <div class="fform">
+            <form action="/signup/" method="post">
+              {% csrf_token %}
+              <div class="inbox" id="fname">
+                <input type="text" name="fnmtb" id="fnmtb" required="required" onblur="firstNameCheck('fnmtb');">
+                <span class="lab">first name</span><span class="error"></span>
+              </div>
+              <div class="inbox" id="lname">
+                <input type="text" name="lnmtb" id="lnmtb" required="required" onblur="lastNameCheck('lnmtb');">
+                <span class="lab">last name</span><span class="error"></span>
+              </div>
+              <div class="inbox" id="uname">
+                <input type="text" name="unmtb" id="unmtb" required="required" onblur="userNameCheck('unmtb');">
+                <span class="lab">User name</span><span class="error"></span>
+              </div>
+              <div class="inbox" id="email">
+                <input type="email" name="emailtb" id="emailtb" required="required" onblur="eMailCheck('emailtb');">
+                <span class="lab">email</span><span class="error"></span>
+              </div>
+              <div class="inbox" id="phone">
+                <input type="text" name="pnotb" id="pnotb" required="required" onblur="phoneNumberCheck('pnotb');">
+                <span class="lab">phone no</span><span class="error"></span>
+              </div>
+              <div class="inbox" id="pass">
+                <input type="password" name="passtb" id="passtb" required="required" onblur="passwordCheck('passtb');">
+                <span class="lab">password</span><span class="error"></span>
+              </div>
+              <div class="inbox" id="cpass">
+                <input type="password" name="cpasstb" id="cpasstb" required="required" onblur="confirmPasswordCheck('cpasstb','passtb');">
+                <span class="lab">confirm password</span><span class="error"></span>
+              </div>
+              <div class="inbox">
+
+                <input type="submit" name="submit" value="sign up" onclick="return allTrueCheck();">
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function home() {
+      alert("Please Singup Your Account!!");
+    }
+  </script>
+</body>
+
+</html>

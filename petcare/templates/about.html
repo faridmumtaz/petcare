@@ -1,0 +1,265 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>About Us | Petcare</title>
+
+  <link rel="shortcut icon" href="{% static 'img/shortcuticon.jpg' %}" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="{% static 'fontawesome-free-5.15.1-web/css/all.css' %}">
+  <link rel="stylesheet" href="{% static 'css/about.css' %}" />
+
+
+  <!--offline-->
+  <!--<link rel="stylesheet" href="/dist/aos.css" />-->
+
+  <!--aos-->
+  <link href="{% static '/aos-master/dist/aos.css' %}" rel="stylesheet">
+  <script src="{% static '/aos-master/dist/aos.js' %}"></script>
+
+  <!--owl-->
+  <link rel="stylesheet" href="{% static 'OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css' %}" />
+  <script src="{% static 'OwlCarousel2-2.3.4/docs/assets/vendors/jquery.min.js' %}"></script>
+  <script src="{% static 'OwlCarousel2-2.3.4/dist/owl.carousel.min.js' %}"></script>
+
+
+  <style>
+    .loader {
+      position: fixed;
+      z-index: 99999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgb(255, 255, 255);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loader>img {
+      width: 600px;
+    }
+
+    .loader.hidden {
+      animation: fadeout 1s;
+      animation-fill-mode: forwards;
+
+    }
+
+    @keyframes fadeout {
+      100% {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  </style>
+
+  <script>
+    AOS.init();
+  </script>
+
+</head>
+
+<body>
+  <div class="loader">
+    <img src="{% static 'img/lod5.gif' %}" alt="loading....">
+  </div>
+
+
+  <!-- header -->
+
+  <div class="header">
+
+    <a herf="#" class="logo">Pet Care<samp>.</samp></a>
+    <div class="menutoggle" onclick="togglemenu();">
+
+    </div>
+
+    <ul class="nav">
+      {% if 'volunteer_logged_in' in request.session %}
+      <li> <a href='/user'> {{ request.session.user_logged_in }} </a> </li> 
+      <li> <a href='/'>home</a> </li>
+      <li><a href='/about'>about us</a></li>
+      <li><a href='/#services'>services</a></li>
+      <li><a href='/contacts'>contacts us</a></li>
+      {% elif 'user_logged_in' in request.session %}
+      <li> <a href='/user'> {{ request.session.user_logged_in }} </a> </li> 
+      <li> <a href='/'>home</a> </li>
+      <li><a href='/about'>about us</a></li>
+      <li><a href='/#services'>services</a></li>
+      <li><a href='/contacts'>contacts us</a></li>
+      <li><a href='/volunteer'>Join us</a></li>
+      {% else %}
+      <li> <a href='/login'>login</a> </li>
+      <li> <a href='/'>home</a> </li>
+      <li><a href='/about'>about us</a></li>
+      <li><a href='/#services'>services</a></li>
+      <li><a href='/contacts'>contacts us</a></li>
+      {% endif %}
+    </ul>
+  </div>
+
+
+  <section class="banner" id="banner">
+    <div class="content">
+      <h1 data-aos="fade-right" data-aos-offset="300" data-aos-duration="3000"><span>a</span>bout <span>u</span>s<samp>.</samp></h1>
+    </div>
+  </section>
+
+  <div class="care">
+    <p data-aos="fade-up" data-aos-duration="1000">Petcare is an non-profitable organization that brings to all the pet parents and animal
+      lovers a unique online vet consultation platform to find answers to their concerns related to their pets’ health,
+      and diet. Our veterinary doctors online are striving every day to offer you high-quality, easy, and affordable
+      veterinary consultation services.
+    </p>
+
+    <p data-aos="fade-up" data-aos-duration="1000">We understand your love for your pets, who are much more than family members to you. At
+      the same time, we know your helplessness when you just can’t help your pet and have to see them suffer. Our own
+      experience of parenting a pet, losing him, lack of veterinary services, and being clueless, everything combined
+      for us at one time. </p>
+
+    <p data-aos="fade-up" data-aos-duration="1000">It was disheartening to see lack of proper facilities and veterinary doctors in many
+      remote places. Thus began the journey and the commitment of petcare to help pet parents and stray rescuers in
+      gaining better knowledge and expert guidance.</p>
+
+    <p data-aos="fade-up" data-aos-duration="1000">In few simple steps, petcare allows you to connect with a veterinary doctor online who
+      works dedicatedly to answer your queries. If you need a second opinion on your pet’s current treatment, a remedy
+      to a new infection, or even a specialized diet recommendation, our expert online vets will guide you. We know how
+      valuable your time and money are. Petcare offers all these opportunities for free from your home’s comfort.
+    </p>
+
+    <p data-aos="fade-up" data-aos-duration="1000">With an adequate amount of knowledge about your pet’s health and behavior, possible
+      reasons, and quick remedies, a pet parent can feel a sense of confidence and empowerment. Our beloved furry pets
+      are too sensitive and unfortunately, have limited means to communicate their pain or discomfort. Moreover, humans
+      also often fail to understand their signs.</p>
+
+    <p data-aos="fade-up" data-aos-duration="1000">Not every little symptom would need a visit to a vet or a consultation from a veterinary
+      doctor online. That is why we have made and shared a knowledge bank on your pet’s symptoms, diseases, behavior,
+      remedies, and tips.These articles have been written and/or approved by our trusted vets to allow you to become
+      your pet’s advocate. We hope our experience and pledge towards making pet parenting easy can make a difference, a
+      pawsitive difference!</p>
+
+    <p data-aos="fade-up" data-aos-duration="1000">Consult a vet online and know about pet behavior. Our expertise allows us to provide you
+      with the best remedies to deal with the swinging mood or any kind of unexpected behavior.
+
+      Pet adoption is the process of taking responsibility for a pet that a previous owner has abandoned or released to
+      a shelter or rescue organization. Common sources for adoptable pets are animal shelters and rescue groups.
+
+
+      We are engaged in providing services like pet adoption. With simplified solutions and procedure one can adopt any
+      pet required. </p>
+
+  </div>
+
+
+  <div class="our-doc">
+    <h1 data-aos="zoom-in" data-aos-duration="1000"><span>d</span>oc <span>d</span>etails<samp>.</samp></h1>
+    <div class="content1">
+      <div class="dit" data-aos="fade-up" data-aos-duration="1000">
+        <img src="{% static 'img/images.jpg' %}" alt=" ">
+        <h2>
+          Dr. Bhavya Sharma<br> M.V.Sc, B.V.Sc & AH
+        </h2>
+        <p>
+          I am a veterinary doctor by profession and a passionate animal lover. My passion for animals, the voiceless
+          beings, continues to become stronger everyday. I envision a strong veterinary infrastructure in India that
+          aids in animal health and welfare. Online vet consultation with Drwaggers.com brings me closer to my goals.
+        </p>
+        <div class="icon">
+          <i class="fab fa-linkedin"></i>
+        </div>
+        <div class="icon">
+          <i class="fab fa-facebook"></i>
+        </div>
+        <div class="icon">
+          <i class="fab fa-instagram"></i>
+        </div>
+      </div>
+      <div class="dit" data-aos="fade-up" data-aos-duration="1000">
+        <img src="{% static 'img/doctor2.jpg' %}" alt=" ">
+        <h2>
+          Dr. Devika Sharma<br> B.V.Sc & AH
+        </h2>
+        <p>
+          As a veterinary professional and a mother, it is hard for me to decide what brings me more joy , my son
+          looking up to me in a noble profession or the pet parents who I consult. Nevertheless, I would prefer this
+          question to be unanswered.
+        </p>
+        <div class="icon">
+          <i class="fab fa-linkedin"></i>
+        </div>
+        <div class="icon">
+          <i class="fab fa-facebook"></i>
+        </div>
+        <div class="icon">
+          <i class="fab fa-instagram"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="footer-section">
+    <div class="wrapper">
+      <div class="footer">
+        <br>
+        <div data-aos="zoom-in" data-aos-duration="1000" class="footer-icon">
+          <div class="icon">
+            <i class="fab fa-twitter"></i>
+          </div>
+          <div class="icon">
+            <i class="fab fa-facebook"></i>
+          </div>
+          <div class="icon">
+            <i class="fab fa-instagram"></i>
+          </div>
+          <div class="icon">
+            <i class="fab fa-linkedin" aria-hidden="true"></i>
+          </div>
+        </div>
+        <p data-aos="zoom-in" data-aos-duration="1000">
+          Copyright 2010-2022 All Right Reserved.
+          <br>
+          <br>
+          Privacy | Terms | Infrigrement | View Just Dial On Mobile
+        </p>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+    window.addEventListener("load", function() {
+      const loader = document.querySelector(".loader");
+      loader.className += " hidden";
+    });
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('.header');
+      header.classList.toggle("sticky", window.scrollY > 0);
+    });
+
+    function togglemenu() {
+      const menutoggle = document.querySelector('.menutoggle');
+      const nev = document.querySelector('.nav');
+      menutoggle.classList.toggle('active');
+      nev.classList.toggle("active");
+    }
+  </script>
+
+  <!--offline-->
+  <!--<script src="C:\Users\LENOVO\Documents\dog\numscroller-gh-pages\lib\jquery-1.10.2.min.js"></script>-->
+  <script src="{% static 'numscroller-gh-pages/lib/prism.js' %}"></script>
+  <script src="{% static 'numscroller-gh-pages/numscroller-1.0.js' %}"></script>
+
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>

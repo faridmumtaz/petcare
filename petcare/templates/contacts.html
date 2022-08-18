@@ -1,0 +1,256 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Contact Us | Petcare </title>
+
+    <link rel="shortcut icon" href="{% static 'img/shortcuticon.jpg' %}" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="{% static 'fontawesome-free-5.15.1-web/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contacts.css' %}" />
+
+    <!--offline-->
+    <!--<link rel="stylesheet" href="/dist/aos.css" />-->
+
+    <!--aos-->
+    <link href="{% static '/aos-master/dist/aos.css' %}" rel="stylesheet">
+    <script src="{% static '/aos-master/dist/aos.js' %}"></script>
+
+    <!--owl-->
+    <link rel="stylesheet" href="{% static 'OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css' %}" />
+    <script src="{% static 'OwlCarousel2-2.3.4/docs/assets/vendors/jquery.min.js' %}"></script>
+    <script src="{% static 'OwlCarousel2-2.3.4/dist/owl.carousel.min.js' %}"></script>
+
+    <script src="{% static '/javascript/validation.js' %}"></script>
+    <style>
+        .loader {
+            position: fixed;
+            z-index: 99999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgb(255, 255, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loader>img {
+            width: 600px;
+        }
+
+        .loader.hidden {
+            animation: fadeout 1s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeout {
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        .error {
+            display: block;
+            color: red;
+            float: right;
+            width: 30%;
+        }
+    </style>
+
+    <script>
+        AOS.init();
+    </script>
+
+</head>
+
+<body>
+    <div class="loader">
+        <img src="{% static 'img/lod5.gif' %}" alt="loading....">
+    </div>
+
+
+    <!-- header -->
+
+    <div class="header">
+
+        <a herf="#" class="logo">Pet Care<samp>.</samp></a>
+        <div class="menutoggle" onclick="togglemenu();">
+
+        </div>
+
+        <ul class="nav">
+            {% if 'volunteer_logged_in' in request.session %}
+              <li> <a href='/user'> {{ request.session.user_logged_in }} </a> </li> 
+              <li> <a href='/'>home</a> </li>
+              <li><a href='/about'>about us</a></li>
+              <li><a href='/#services'>services</a></li>
+              <li><a href='/contacts'>contacts us</a></li>
+              {% elif 'user_logged_in' in request.session %}
+              <li> <a href='/user'> {{ request.session.user_logged_in }} </a> </li> 
+              <li> <a href='/'>home</a> </li>
+              <li><a href='/about'>about us</a></li>
+              <li><a href='/#services'>services</a></li>
+              <li><a href='/contacts'>contacts us</a></li>
+              <li><a href='/volunteer'>Join us</a></li>
+              {% else %}
+              <li> <a href='/login'>login</a> </li>
+              <li> <a href='/'>home</a> </li>
+              <li><a href='/about'>about us</a></li>
+              <li><a href='/#services'>services</a></li>
+              <li><a href='/contacts'>contacts us</a></li>
+              {% endif %}
+        </ul>
+    </div>
+
+    <section class="banner" id="banner">
+        <div class="content">
+            <h1 data-aos="fade-right" data-aos-offset="300" data-aos-duration="3000"><span>c</span>ontact <span>u</span>s<samp>.</samp></h1>
+        </div>
+    </section>
+
+    <div class="contacts">
+        <div class="info" data-aos="fade-up" data-aos-duration="1000">
+            <div class="con">
+                <div class="icon">
+                    </i><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                <div class="text">
+                    <h3>address</h3>
+                    <p>Dasera tekri, near kaliyawadi, Lunsikui, Navsari, Gujarat 396445</p>
+                </div>
+            </div>
+            <div class="con">
+                <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                <div class="text">
+                    <h3>phone no</h3>
+                    <p>+91 966-452-3190</p>
+                </div>
+            </div>
+            <div class="con">
+                <div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                <div class="text">
+                    <h3>email :</h3>
+                    <p>petcare@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="conform" data-aos="fade-up" data-aos-duration="1000">
+            <form action="/contacts/" method="post">
+                {% csrf_token %}
+                <h2>send message</h2>
+                <div class="inbox" id="name">
+                    <input type="text" name="nmtb" id="nmtb" required="required" onblur="nameCheck('nmtb')">
+                    <span class="lab">Name</span><span class="error"></span>
+                </div>
+                <div class="inbox" id="email">
+                    <input type="text" name="emailtb" id="emailtb" required="required" onblur="eMailCheck('emailtb');">
+                    <span class="lab">email</span><span class="error"></span>
+                </div>
+
+                <div class="inbox" id="feedback">
+                    <textarea required="required" name="feedtb" id="feedtb" required></textarea>
+                    <span class="lab">Your Message</span>
+                </div>
+
+                <div class="inbox">
+                    <input type="submit" name="submit" value="send" onclick="return allTrueCheck();">
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div class="dev">
+        <div class="title">
+            <h1 data-aos="zoom-in" data-aos-duration="1000"><span>d</span>eveloper <span>d</span>etails<samp>.</samp></h1>
+        </div>
+        <div class="menu">
+            <div class="single-menu" data-aos="zoom-in" data-aos-duration="1000">
+                <img src="{% static 'img/photo_2022-06-20_21-04-47.jpg' %}" alt="">
+                <div class="menu-content">
+                    <h4>Farid Ahmad(Web Developer/Admin)</h4>
+                    <p>Kabul,Afghanistan<br><br>Email : f6.ahmadan@gmail.com</p>
+                </div>
+            </div>
+            <div class="single-menu" data-aos="zoom-in" data-aos-duration="1000">
+                <img src="{% static 'img/IMG_20210312_192739.JPG' %}" alt="">
+                <div class="menu-content">
+                    <h4>Asiful Sk (Web Developer/Admin)</h4>
+                    <p>Gujarat,India<br><br>Email : asifulshaikh@gmail.com</p>
+                </div>
+            </div>
+            <div class="single-menu" data-aos="zoom-in" data-aos-duration="1000">
+                <img src="{% static 'img/8a102577-2fd7-4be3-99e8-fecf0d0ef493.jpg' %}" alt="">
+                <div class="menu-content">
+                    <h4>Niyati Vashistha(Web Designer/Admin)</h4>
+                    <p>Gujarat,India<br><br>Email : vashisthaniyati@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer-section">
+        <div class="wrapper">
+            <div class="footer">
+                <br>
+                <div data-aos="zoom-in" data-aos-duration="1000" class="footer-icon">
+                    <div class="icon">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <div class="icon">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <div class="icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="icon">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <p data-aos="zoom-in" data-aos-duration="1000">
+                    Copyright 2010-2022 All Right Reserved.
+                    <br>
+                    <br> Privacy | Terms | Infrigrement | View Just Dial On Mobile
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <script type="text/javascript">
+        window.addEventListener("load", function() {
+            const loader = document.querySelector(".loader");
+            loader.className += " hidden";
+        });
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            header.classList.toggle("sticky", window.scrollY > 0);
+        });
+
+        function togglemenu() {
+            const menutoggle = document.querySelector('.menutoggle');
+            const nev = document.querySelector('.nav');
+            menutoggle.classList.toggle('active');
+            nev.classList.toggle("active");
+        }
+    </script>
+
+    <!--offline-->
+    <!--<script src="C:\Users\LENOVO\Documents\dog\numscroller-gh-pages\lib\jquery-1.10.2.min.js"></script>-->
+    <script src="{% static 'numscroller-gh-pages/lib/prism.js' %}"></script>
+    <script src="{% static 'numscroller-gh-pages/numscroller-1.0.js' %}"></script>
+
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

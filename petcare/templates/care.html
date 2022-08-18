@@ -1,0 +1,272 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>Care Advice | Petcare</title>
+
+  <link rel="shortcut icon" href="{% static 'img/shortcuticon.jpg' %}" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="{% static 'fontawesome-free-5.15.1-web/css/all.css' %}">
+  <link rel="stylesheet" href="{% static 'css/care.css' %}" />
+
+  <!--offline-->
+  <!--<link rel="stylesheet" href="/dist/aos.css" />-->
+
+  <!--aos-->
+  <link href="{% static '/aos-master/dist/aos.css' %}" rel="stylesheet">
+  <script src="{% static '/aos-master/dist/aos.js' %}"></script>
+
+  <!--owl-->
+  <link rel="stylesheet" href="{% static 'OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css' %}" />
+  <script src="{% static 'OwlCarousel2-2.3.4/docs/assets/vendors/jquery.min.js' %}"></script>
+  <script src="{% static 'OwlCarousel2-2.3.4/dist/owl.carousel.min.js' %}"></script>
+
+
+  <style>
+    .loader {
+      position: fixed;
+      z-index: 99999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgb(255, 255, 255);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loader>img {
+      width: 600px;
+    }
+
+    .loader.hidden {
+      animation: fadeout 1s;
+      animation-fill-mode: forwards;
+
+    }
+
+    @keyframes fadeout {
+      100% {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  </style>
+
+  <script>
+    AOS.init();
+  </script>
+
+</head>
+
+<body>
+  <div class="loader">
+    <img src="{% static 'img/lod5.gif' %} " alt="loading....">
+  </div>
+
+
+  <!-- header -->
+
+  <div class="header">
+
+    <a herf="#" class="logo">Pet Care<samp>.</samp></a>
+    <div class="menutoggle" onclick="togglemenu();">
+
+    </div>
+
+    <ul class="nav">
+      {% if 'volunteer_logged_in' in request.session %}
+      <li> <a href='/user'> {{ request.session.user_logged_in }} </a> </li> 
+      <li> <a href='/'>home</a> </li>
+      <li><a href='/about'>about us</a></li>
+      <li><a href='/#services'>services</a></li>
+      <li><a href='/contacts'>contacts us</a></li>
+      {% elif 'user_logged_in' in request.session %}
+      <li> <a href='/user'> {{ request.session.user_logged_in }} </a> </li> 
+      <li> <a href='/'>home</a> </li>
+      <li><a href='/about'>about us</a></li>
+      <li><a href='/#services'>services</a></li>
+      <li><a href='/contacts'>contacts us</a></li>
+      <li><a href='/volunteer'>Join us</a></li>
+      {% else %}
+      <li> <a href='/login'>login</a> </li>
+      <li> <a href='/'>home</a> </li>
+      <li><a href='/about'>about us</a></li>
+      <li><a href='/#services'>services</a></li>
+      <li><a href='/contacts'>contacts us</a></li>
+      {% endif %}
+    </ul>
+  </div>
+
+
+  <section class="banner" id="banner">
+    <div class="content">
+      <h1 data-aos="fade-right" data-aos-offset="300" data-aos-duration="3000"><span>c</span>are <span>a</span>dvice<samp>.</samp></h1>
+    </div>
+  </section>
+
+  <div class="care">
+    <h1 data-aos="fade-up" data-aos-duration="1000"> As a pet parent you want to do everything you can to care for your pet; this involves
+      regular, everyday activities to ensure they stay happy and healthy. Practice these ten responsible pet care tips
+      year after year for a lifetime of happy and healthy cats and dogs.</h1>
+
+    <h2 data-aos="fade-up" data-aos-duration="1000">1. Veterinarian Visits</h2>
+    <p data-aos="fade-up" data-aos-duration="1000">Responsible pet ownership starts with regular visits to the veterinarian. Given their
+      shorter-than-human lifespan, your dog or cat should be getting a checkup at least once or twice a year. Depending
+      on your pet's vaccination schedule, they may go more frequently when they're young, but establishing and
+      maintaining good pet health means keeping up with vet visits as they age.</p>
+
+    <p data-aos="fade-up" data-aos-duration="1000">Trips to the vet can be, shall we say, challenging. Cats, in particular, may be averse to
+      leaving the comfy confines of their home, but there are ways to reduce stress for both of you. Acclimating your
+      cat to her carrier when she is a kitten is good practice (and avoids the running-away-and-hiding-under-the-bed
+      scenario). Dogs tend to like going for car rides. Take your pup on joyrides, so he won't associate getting into
+      the car with going to the vet. And many pets don't mind a trip to the veterinarian's office, especially if you
+      choose a vet that's a good fit for your little friend.</p>
+
+    <h2 data-aos="fade-up" data-aos-duration="1000">2. Vaccinations</h2>
+    <p data-aos="fade-up" data-aos-duration="1000">Vaccinating your pets is a vital component of responsible pet care. Soon after welcoming
+      your new pet into your home, schedule an immunization appointment. During your first visit, the vet will set up an
+      immunization schedule for your little pup or kitten to protect them from illness and disease. Vaccinations for
+      puppies should happen early in your puppies first few weeks after you bring him home. Talk to your vet at your
+      first appointment, on when a good time to schedule that visit. They help prevent diseases such as rabies, Lyme
+      disease, and distemper. Cats benefit from vaccines that prevent feline herpes virus, feline leukemia, and rabies.
+      If you've adopted an adult or senior animal, make sure they are immunized, too. Vaccinations do need renewal and
+      aren't just for young pets.</p>
+
+    <h2 data-aos="fade-up" data-aos-duration="1000">3. Proper Identification</h2>
+    <p data-aos="fade-up" data-aos-duration="1000">If the unthinkable happens and your little guy or gal gets lost — youngsters in
+      particular are prone to dashing out the door — having proper identification is the key to a happy ending. Start
+      with the basics: a safe collar, and a tag that contains all of your contact information. In addition to an ID tag,
+      microchipping your pet is advisable, because there's always the chance a collar will fall off. The microchip, an
+      electronic device about the size and shape of a grain of rice, is implanted under your pet's skin and can be read
+      by a scanner that pulls up your identification information. A combination of these forms of identification will go
+      a long way to reuniting you and your beloved pet, but only if you keep your contact information up-to-date. Be
+      sure to change your information on file with the microchip if you have a change in address or phone number.</p>
+
+    <h2 data-aos="fade-up" data-aos-duration="1000">4. Spaying/Neutering</h2>
+    <p data-aos="fade-up" data-aos-duration="1000">Sterilizing your pet prevents a host of health problems, including complicated
+      pregnancies, and reduces the number of homeless animals. Spaying your kitty (removing the uterus and ovaries)
+      greatly reduces her risk for cervical cancer, eliminates the risk of ovarian cancer, and prevents her from going
+      into "heat." That minimizes the chance that she'll stray from home in search of a partner, and any nearby male
+      cats will be less aggressive (and they won't spray to mark their territory, something that benefits you and your
+      furniture). Neutering your puppy helps alleviate aggression and roaming the neighborhood, and will prevent him
+      from getting testicular cancer. Because spaying or neutering is surgery that requires general anesthesia, your pet
+      will likely stay overnight at the vet's office for at least one night for observation and recuperation.</p>
+
+    <h2 data-aos="fade-up" data-aos-duration="1000">5. Healthy Food</h2>
+    <p data-aos="fade-up" data-aos-duration="1000">Two connected elements of responsible pet ownership include providing animals with fresh,
+      cool water and healthy food at all times. The right pet food will enrich your best buddy's life, providing them
+      with the energy and nutrients they need. With so many meal options to choose from, it can be daunting, but you can
+      become adept in no time by familiarizing yourself with important ingredients and how they help your pup or kitty.
+      When choosing the best cat food, look for a good balance of protein, carbs and fats. These are important
+      ingredients for dog food, too, as is plenty of fiber for the digestive system. In addition to healthy ingredients,
+      select a pet food formula that is appropriate for your pet's age, health conditions and activity level, and speak
+      to your vet before switching your pet to a specialized food.</p>
+
+    <h2 data-aos="fade-up" data-aos-duration="1000">6. At-Home Care</h2>
+    <p data-aos="fade-up" data-aos-duration="1000">As your pets' caretaker, your job is to provide them with good hygiene habits at home as
+      well as at the vet's or groomer's. Brushing their teeth, combing their coats and providing them with healthy food
+      all keeps them in tip-top shape. To stay on track with responsible pet care, schedule hygiene and grooming tasks
+      in your calendar and try combining tasks, such as a comforting comb after trimming nails, until it becomes
+      routine.</p>
+
+    <h2 data-aos="fade-up" data-aos-duration="1000">7. Comfy Quarters</h2>
+    <p data-aos="fade-up" data-aos-duration="1000">As the seasons change or you rearrange your living space, take a look around to see that
+      you're providing your pet with a safe, cozy habitat. Dog bed looking a little flat? Buy your pup a new one. Litter
+      box area not cutting it anymore? Spruce up your kitty's bathroom with a new box and scoop. This also is a good
+      time to check for potential hazards. Look for exposed cords or wires (young animals find these to be great chew
+      toys), secure safety gates, repair loose windows or screens and remove any plants that are poisonous to your pet.
+    </p>
+
+    <h2 data-aos="fade-up" data-aos-duration="1000">8. Training and Socializing</h2>
+    <p data-aos="fade-up" data-aos-duration="1000">One of the most important aspects of responsible pet care is ensuring your dog or cat is
+      well-trained, and proper socializing is a part of that. Starting when they're young is best and most effective,
+      but it's never too late to learn new tricks. Toilet training is the number one priority for any animal with whom
+      you share your home, as is working on obedience training. Learning socialization skills will help your puppy or
+      kitten bond with you and with other pets. Ask your vet or local animal shelter for recommendations for good
+      trainers in your area or at-home training guides to read. A well-trained pet is a happy pet, and that translates
+      to a happy pet parent.</p>
+
+
+    <h2 data-aos="fade-up" data-aos-duration="1000">9. Following Dog Park Rules</h2>
+    <p data-aos="fade-up" data-aos-duration="1000">Taking your dog outside to play is one heck of a good time, and, being the social
+      creatures they are, dogs love a good romp outdoors. If you decide to take your pup to a dog park, abide by the
+      posted rules. Proper dog park etiquette, such as bringing your own toys and not bringing in food, keeps everyone
+      safe, especially if a dog is aggressive or under-socialized. Bring along treats for afterward to reward your guy
+      for his good behavior. Vets also recommend that you wait until your dog is at least four months old before
+      bringing him to the dog park to ensure he's vaccinated before being exposed to other animals.</p>
+
+    <h2 data-aos="fade-up" data-aos-duration="1000">10. Safe Playtime</h2>
+    <p data-aos="fade-up" data-aos-duration="1000">It's no secret that dogs and cats love to play, and it's an effective
+      relationship-building activity. Take stock of their toys. Are they safe? Be mindful of threadbare stuffed toys
+      that pose choking hazards and hard, sharp edges that could cause injury. Throw away and replace playthings that
+      are worn out. Making DIY cat toys and dog toys is a great, inexpensive way to bring even more fun to pet
+      parenting!</p>
+
+    <p data-aos="fade-up" data-aos-duration="1000">Remember, these tips aren't applicable just during pet holidays — make them part of your
+      regular pet parenting role, and you and your pets will reap the benefits for a lifetime!</p>
+  </div>
+
+  <div class="footer-section">
+    <div class="wrapper">
+      <div class="footer">
+        <br>
+        <div data-aos="zoom-in" data-aos-duration="1000" class="footer-icon">
+          <div class="icon">
+            <i class="fab fa-twitter"></i>
+          </div>
+          <div class="icon">
+            <i class="fab fa-facebook"></i>
+          </div>
+          <div class="icon">
+            <i class="fab fa-instagram"></i>
+          </div>
+          <div class="icon">
+            <i class="fab fa-linkedin" aria-hidden="true"></i>
+          </div>
+        </div>
+        <p data-aos="zoom-in" data-aos-duration="1000">
+          Copyright 2010-2022 All Right Reserved.
+          <br>
+          <br>
+          Privacy | Terms | Infrigrement | View Just Dial On Mobile
+        </p>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+  <script type="text/javascript">
+    window.addEventListener("load", function() {
+      const loader = document.querySelector(".loader");
+      loader.className += " hidden";
+    });
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('.header');
+      header.classList.toggle("sticky", window.scrollY > 0);
+    });
+
+    function togglemenu() {
+      const menutoggle = document.querySelector('.menutoggle');
+      const nev = document.querySelector('.nav');
+      menutoggle.classList.toggle('active');
+      nev.classList.toggle("active");
+    }
+  </script>
+
+  <!--offline-->
+  <!--<script src="C:\Users\LENOVO\Documents\dog\numscroller-gh-pages\lib\jquery-1.10.2.min.js"></script>-->
+  <script src="numscroller-gh-pages/lib/prism.js"></script>
+  <script src="numscroller-gh-pages/numscroller-1.0.js"></script>
+
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>
